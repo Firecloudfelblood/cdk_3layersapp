@@ -26,8 +26,19 @@ pipeline {
     }
 
     stage('Build') {
-      steps {
-        sh 'cat versionImage | xargs ./scripts/build.sh'
+      parallel {
+        stage('Build') {
+          steps {
+            sh 'cat versionImage | xargs ./scripts/build.sh'
+          }
+        }
+
+        stage('message') {
+          steps {
+            echo 'compilando'
+          }
+        }
+
       }
     }
 
