@@ -4,6 +4,7 @@ pipeline {
     stage('Inicio_Environment') {
       steps {
         echo 'Iniciando contruccion de proyect'
+        sh 'export PATH=$PATH:/usr/local/bin'
         sh 'env'
       }
     }
