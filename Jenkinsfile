@@ -18,7 +18,7 @@ pipeline {
 
         stage('Images from docker') {
           steps {
-            sh '/usr/local/bin/docker image'
+            sh '/usr/local/bin/docker images'
           }
         }
 
