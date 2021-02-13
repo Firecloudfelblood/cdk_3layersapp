@@ -26,8 +26,31 @@ pipeline {
     }
 
     stage('Build') {
+      parallel {
+        stage('Build') {
+          steps {
+            sh 'cat versionImage | xargs ./scripts/build.sh'
+          }
+        }
+
+        stage('message') {
+          steps {
+            echo 'compilando'
+          }
+        }
+
+      }
+    }
+
+    stage('container runner') {
       steps {
-        sh 'cat versionImage | xargs ./scripts/build.sh'
+        sh '/usr/local/bin/docker run --name proyectoApi -itd -p 3001:3001  grimripper/app3layer:9.9 '
+      }
+    }
+
+    stage('docker ps') {
+      steps {
+        sh '/usr/local/bin/docker ps'
       }
     }
 
