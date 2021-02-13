@@ -48,5 +48,11 @@ pipeline {
       }
     }
 
+    stage('docker ps') {
+      steps {
+        sh '/usr/local/bin/docker ps'
+      }
+    }
+
   }
 }
