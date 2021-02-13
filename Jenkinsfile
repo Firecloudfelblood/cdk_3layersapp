@@ -44,7 +44,7 @@ pipeline {
 
     stage('container runner') {
       steps {
-        sh '/usr/local/bin/docker run --name proyectoApi -itd --rm -p 3001:3001  grimripper/app3layer:9.9 '
+        sh '/usr/local/bin/docker run --name proyectoApi -itd -p 3001:3001  grimripper/app3layer:9.9 '
       }
     }
 
