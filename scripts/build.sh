@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t grimripper/app3layer:$1  .
+/usr/local/bin/docker build -t grimripper/app3layer:$1  .
