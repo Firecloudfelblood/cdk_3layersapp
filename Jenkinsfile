@@ -46,8 +46,8 @@ pipeline {
       parallel {
         stage('container runner') {
           steps {
-            sh '''/usr/local/bin/docker stop proyapi || true
-/usr/local/bin/docker rm proyapi || true
+            sh '''/usr/local/bin/docker stop proyectoApi || true
+/usr/local/bin/docker rm proyectoApi || true
 /usr/local/bin/docker run --name proyectoApi -itd -p 3001:3001  grimripper/app3layer:9.9 '''
           }
         }
