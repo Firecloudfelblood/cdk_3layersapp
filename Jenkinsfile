@@ -68,8 +68,19 @@ pipeline {
     }
 
     stage('testing image') {
-      steps {
-        sh 'curl http://localhost:3001'
+      parallel {
+        stage('testing image') {
+          steps {
+            sh 'curl http://localhost:3001'
+          }
+        }
+
+        stage('mensage') {
+          steps {
+            echo 'Probando'
+          }
+        }
+
       }
     }
 
