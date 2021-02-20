@@ -67,5 +67,11 @@ pipeline {
       }
     }
 
+    stage('testing image') {
+      steps {
+        sh 'curl http://localhost:3001'
+      }
+    }
+
   }
 }
